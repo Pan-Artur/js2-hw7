@@ -2449,7 +2449,7 @@ var templateFunction = _handlebars.default.template({
         }
         return undefined;
       };
-    return "    <li class=\"cars-item\">\n      <img src=\"" + alias2(alias1(depth0 != null ? lookupProperty(depth0, "photo") : depth0, depth0)) + "\" alt=\"car-photo\" />\n      <h2 class=\"mark\">" + alias2(alias1(depth0 != null ? lookupProperty(depth0, "mark") : depth0, depth0)) + "</h2>\n      <h2 class=\"model\">" + alias2(alias1(depth0 != null ? lookupProperty(depth0, "model") : depth0, depth0)) + "</h2>\n      <div class=\"line\"></div>\n      <p class=\"price\">" + alias2(alias1(depth0 != null ? lookupProperty(depth0, "price") : depth0, depth0)) + "</p>\n    </li>\n";
+    return "    <li class=\"cars-item\">\n      <h2 class=\"mark\">" + alias2(alias1(depth0 != null ? lookupProperty(depth0, "mark") : depth0, depth0)) + "</h2>\n      <h2 class=\"model\">" + alias2(alias1(depth0 != null ? lookupProperty(depth0, "model") : depth0, depth0)) + "</h2>\n      <div class=\"line\"></div>\n      <p class=\"price\">" + alias2(alias1(depth0 != null ? lookupProperty(depth0, "price") : depth0, depth0)) + "</p>\n    </li>\n";
   },
   "compiler": [8, ">= 4.3.0"],
   "main": function main(container, depth0, helpers, partials, data) {
@@ -2472,7 +2472,7 @@ var templateFunction = _handlebars.default.template({
           "column": 2
         },
         "end": {
-          "line": 10,
+          "line": 9,
           "column": 11
         }
       }
@@ -2489,27 +2489,22 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.cars = void 0;
 var cars = exports.cars = [{
-  photo: "./bmw.7cc953fa.webp",
   mark: "BMW",
   model: "M5 f90 competition",
   price: "85 000$"
 }, {
-  photo: "./mercedes-benz.webp",
   mark: "Mercedes-Benz",
   model: "560 sec amg 1989",
   price: "21 000$"
 }, {
-  photo: "./toyota.webp",
   mark: "Toyota",
   model: "Supra MK4",
   price: "20 000$"
 }, {
-  photo: "./nissan.webp",
   mark: "Nissan",
   model: "Skyline GT-R34",
   price: "170 000$"
 }, {
-  photo: "./mitsubishi.webp",
   mark: "Mitsubishi",
   model: "Lancer Evolution",
   price: "7 600$"
@@ -2553,7 +2548,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39749" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33597" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
