@@ -12,7 +12,7 @@ export const cars = [
         price: "21 000$",
     },
     {
-        photo: "./toyota.c98a158e.webp",
+        photo: "./toyota.692e728d.webp",
         mark: "Toyota",
         model: "Supra MK4",
         price: "20 000$",
