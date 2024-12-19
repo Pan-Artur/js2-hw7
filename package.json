@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "start": "npx parcel src/index.html",
-    "build": "parcel build src/index.html --no-minify",
+    "build": "parcel build src/index.html --no-minify --public-url ./",
     "deploy": "gh-pages -d dist",
     "predeploy": "npm run build"
   },
