@@ -1,6 +1,6 @@
 export const cars = [
     {
-        photo: "./bmw.webp",
+        photo: "./bmw.7cc953fa.webp",
         mark: "BMW",
         model: "M5 f90 competition",
         price: "85 000$",
