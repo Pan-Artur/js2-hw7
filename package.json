@@ -11,7 +11,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "homepage": "https://github.com/Pan-Artur/js2-hw7",
   "dependencies": {
     "gh-pages": "^6.2.0",
     "handlebars": "^4.7.8",
