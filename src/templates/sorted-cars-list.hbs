@@ -1,0 +1,11 @@
+<button id="btn" type="button">Сортувати за ціною</button>
+<ul class="sorted-cars">
+  {{#each cars}}
+    <li class="sorted-cars-item">
+      <h2 class="sorted-cars-mark">{{this.mark}}</h2>
+      <h2 class="sorted-cars-model">{{this.model}}</h2>
+      <div class="sorted-cars-line"></div>
+      <p class="sorted-cars-price">{{this.price}}</p>
+    </li>
+  {{/each}}
+</ul>

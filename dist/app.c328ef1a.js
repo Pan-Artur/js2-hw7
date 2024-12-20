@@ -2460,7 +2460,7 @@ var templateFunction = _handlebars.default.template({
         }
         return undefined;
       };
-    return "<ul class=\"cars-list\">\n" + ((stack1 = lookupProperty(helpers, "each").call(depth0 != null ? depth0 : container.nullContext || {}, depth0 != null ? lookupProperty(depth0, "cars") : depth0, {
+    return "<button id=\"btn\" type=\"button\">Сортувати за ціною</button>\n<ul class=\"cars\">\n" + ((stack1 = lookupProperty(helpers, "each").call(depth0 != null ? depth0 : container.nullContext || {}, depth0 != null ? lookupProperty(depth0, "cars") : depth0, {
       "name": "each",
       "hash": {},
       "fn": container.program(1, data, 0),
@@ -2468,11 +2468,62 @@ var templateFunction = _handlebars.default.template({
       "data": data,
       "loc": {
         "start": {
-          "line": 2,
+          "line": 3,
           "column": 2
         },
         "end": {
-          "line": 9,
+          "line": 10,
+          "column": 11
+        }
+      }
+    })) != null ? stack1 : "") + "</ul>";
+  },
+  "useData": true
+});
+var _default = exports.default = templateFunction;
+},{"handlebars/dist/handlebars.runtime":"../node_modules/handlebars/dist/handlebars.runtime.js"}],"templates/sorted-cars-list.hbs":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _handlebars = _interopRequireDefault(require("handlebars/dist/handlebars.runtime"));
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
+var templateFunction = _handlebars.default.template({
+  "1": function _(container, depth0, helpers, partials, data) {
+    var alias1 = container.lambda,
+      alias2 = container.escapeExpression,
+      lookupProperty = container.lookupProperty || function (parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined;
+      };
+    return "    <li class=\"sorted-cars-item\">\n      <h2 class=\"sorted-cars-mark\">" + alias2(alias1(depth0 != null ? lookupProperty(depth0, "mark") : depth0, depth0)) + "</h2>\n      <h2 class=\"sorted-cars-model\">" + alias2(alias1(depth0 != null ? lookupProperty(depth0, "model") : depth0, depth0)) + "</h2>\n      <div class=\"sorted-cars-line\"></div>\n      <p class=\"sorted-cars-price\">" + alias2(alias1(depth0 != null ? lookupProperty(depth0, "price") : depth0, depth0)) + "</p>\n    </li>\n";
+  },
+  "compiler": [8, ">= 4.3.0"],
+  "main": function main(container, depth0, helpers, partials, data) {
+    var stack1,
+      lookupProperty = container.lookupProperty || function (parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined;
+      };
+    return "<button id=\"btn\" type=\"button\">Сортувати за ціною</button>\n<ul class=\"sorted-cars\">\n" + ((stack1 = lookupProperty(helpers, "each").call(depth0 != null ? depth0 : container.nullContext || {}, depth0 != null ? lookupProperty(depth0, "cars") : depth0, {
+      "name": "each",
+      "hash": {},
+      "fn": container.program(1, data, 0),
+      "inverse": container.noop,
+      "data": data,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 2
+        },
+        "end": {
+          "line": 10,
           "column": 11
         }
       }
@@ -2513,13 +2564,31 @@ var cars = exports.cars = [{
 "use strict";
 
 var _carsList = _interopRequireDefault(require("../templates/cars-list.hbs"));
+var _sortedCarsList = _interopRequireDefault(require("../templates/sorted-cars-list.hbs"));
 var _cars = require("./cars.js");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 var layout = (0, _carsList.default)({
   cars: _cars.cars
 });
 document.body.innerHTML = layout;
-},{"../templates/cars-list.hbs":"templates/cars-list.hbs","./cars.js":"js/cars.js"}],"app.js":[function(require,module,exports) {
+var sortBtn = document.querySelector("#btn");
+var carsList = document.querySelector(".cars");
+var parsePrice = function parsePrice(price) {
+  return parseFloat(price.slice(0, -1));
+};
+var _renderCarsList = function renderCarsList() {
+  carsList.remove();
+  var sortedCars = _cars.cars.sort(function (a, b) {
+    return parsePrice(b.price) - parsePrice(a.price);
+  });
+  var sortedLayout = (0, _sortedCarsList.default)({
+    cars: sortedCars
+  });
+  document.body.innerHTML = sortedLayout;
+  sortBtn.removeEventListener("click", _renderCarsList);
+};
+sortBtn.addEventListener("click", _renderCarsList);
+},{"../templates/cars-list.hbs":"templates/cars-list.hbs","../templates/sorted-cars-list.hbs":"templates/sorted-cars-list.hbs","./cars.js":"js/cars.js"}],"app.js":[function(require,module,exports) {
 "use strict";
 
 require("./js/make-cars.js");
@@ -2548,7 +2617,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33597" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33923" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
